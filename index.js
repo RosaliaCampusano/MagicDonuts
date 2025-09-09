@@ -2,7 +2,7 @@ import { data } from "./donut.js";
 
 const donut = data.items.item;
 
-console.log("--------- EJERCICIO 1 -------");
+/* console.log("--------- EJERCICIO 1 -------");
 donutWithHigherSugar();
 donutWithHigherIron();
 donutWithHigherProtein();
@@ -14,7 +14,18 @@ listDonutsWithCalories();
 listDonutWithCarbohydrate();
 averageOfCalories();
 sumOfAllSaturatedFat();
-averagePercentOfEachVitamin();
+averagePercentOfEachVitamin(); */
+
+console.log("--------- EJERCICIO 3 -------");
+donutListWithTheyBatter();
+console.log("-------------------------");
+donutListWithTheyTopping();
+console.log("-------------------------");
+donutWithMoreVarietyBatter();
+console.log("-------------------------");
+donutWithMoreVarietyTopping();
+console.log("-------------------------");
+totalOfDifferentsBattersAndTopping();
 
 function donutWithHigherSugar() {
   let higherSugar = donut[0];
@@ -191,17 +202,100 @@ function averagePercentOfEachVitamin() {
     Iron: ${vitaminAverage.Iron}%`);
 }
 
-//3.- El horno a la leña de esta posada es de alta calidad, debemos lanzar un hechizo para saber qué tipo de masa utilizan
+function donutListWithTheyBatter() {
+  console.log("\n----LIST OF BATTERS----");
+  for (let i = 0; i < donut.length; i++) {
+    const batter = donut[i].batters.batter;
+    console.log(`\n${i + 1}. ${donut[i].name}:`);
+    for (let j = 0; j < batter.length; j++) {
+      console.log(`${batter[j].type}`);
+    }
+  }
+}
 
-//Listar cada donut con sus posibles masas, batter (+ 50 exp)
+function donutListWithTheyTopping() {
+  console.log("\n----LIST OF TOPPINGS----");
+  for (let i = 0; i < donut.length; i++) {
+    const topping = donut[i].topping;
+    console.log(`\n${i + 1}. ${donut[i].name}:`);
+    for (let j = 0; j < topping.length; j++) {
+      if (!topping[j].type.includes("None")) {
+        console.log(`${topping[j].type}`);
+      }
+    }
+  }
+}
 
-//Listar cada donut con sus posibles extras topping (+ 50 exp)
+function donutWithMoreVarietyBatter() {
+  let donutWithMoreBatter = donut[0].batters.batter;
+  let donutName;
 
-//Mostrar el donut con más variedad de masas (batters) (+ 50 exp)
+  for (let i = 0; i < donut.length; i++) {
+    const batter = donut[i].batters.batter;
 
-//Mostrar el donut con más variedad de toppings (+ 50 exp)
+    if (batter.length > donutWithMoreBatter.length) {
+      donutWithMoreBatter = batter;
+      donutName = donut[i].name;
+    }
+  }
 
-//Contar el número total de masas y toppings diferentes que existen en toda la posada (+ 50 exp)
+  console.log(`\nEl donut con mas variedad de masas es de ${donutName}`);
+}
+
+function donutWithMoreVarietyTopping() {
+  let donutWithMoreTopping = donut[0].topping;
+  let donutTopping = [];
+
+  for (let i = 1; i < donut.length; i++) {
+    const topping = donut[i].topping;
+
+    if (topping.length >= donutWithMoreTopping.length) {
+      donutWithMoreTopping = topping;
+      donutTopping.push(donut[i]);
+    }
+  }
+
+  console.log("\nLos donut con mas variedad de topping son: ");
+
+  for (let i = 0; i < donutTopping.length; i++) {
+    console.log(`${donutTopping[i].name}`);
+  }
+}
+
+function totalOfDifferentsBattersAndTopping() {
+  let totalBatter = 0;
+  let totalTopping = 0;
+  let batterSeen = [];
+  let toppingSeen = [];
+
+  for (let i = 0; i < donut.length; i++) {
+    const batter = donut[i].batters.batter;
+    const topping = donut[i].topping;
+
+    for (let j = 0; j < batter.length; j++) {
+      if (!batterSeen.includes(batter[j].id)) {
+        batterSeen.push(batter[j].id);
+        totalBatter++;
+      }
+    }
+
+    for (let k = 0; k < topping.length; k++) {
+      if (!toppingSeen.includes(topping[k].id)) {
+        toppingSeen.push(topping[k].id);
+        totalTopping++;
+      }
+    }
+  }
+
+  console.log(
+    `El total de masas diferentes que existen en toda la posada es de ${totalBatter}`
+  );
+  console.log(
+    `El total de masas diferentes que existen en toda la posada es de ${
+      totalTopping - 1
+    }`
+  );
+}
 
 //4.- Nuestro grupo sólo dispone de 4 monedas de plata.
 
