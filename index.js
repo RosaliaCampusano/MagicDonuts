@@ -1,23 +1,23 @@
 import { data } from "./donut.js";
 
-const donut = data.items.item;
+const donuts = data.items.item;
 
 console.log("--------- EJERCICIO 1 -------");
-donutWithHigherSugar();
+donutsWithHigherSugar();
 console.log("-------------------------");
-donutWithHigherIron();
+donutsWithHigherIron();
 console.log("-------------------------");
-donutWithHigherProtein();
+donutsWithHigherProtein();
 console.log("-------------------------");
-donutWithLessFibre();
+donutsWithLessFibre();
 console.log("-------------------------");
-donutWithHigherCalorie();
+donutsWithHigherCalorie();
 console.log("-------------------------");
 
 console.log("--------- EJERCICIO 2 -------");
-listDonutsWithCalories();
+listdonutssWithCalories();
 console.log("-------------------------");
-listDonutWithCarbohydrate();
+listdonutsWithCarbohydrate();
 console.log("-------------------------");
 averageOfCalories();
 console.log("-------------------------");
@@ -27,21 +27,29 @@ averagePercentOfEachVitamin();
 console.log("-------------------------");
 
 console.log("--------- EJERCICIO 3 -------");
-donutListWithTheyBatter();
+donutsListWithTheyBatter();
 console.log("-------------------------");
-donutListWithTheyTopping();
+donutsListWithTheyTopping();
 console.log("-------------------------");
-donutWithMoreVarietyBatter();
+donutsWithMoreVarietyBatter();
 console.log("-------------------------");
-donutWithMoreVarietyTopping();
+donutsWithMoreVarietyTopping();
 console.log("-------------------------");
 totalOfDifferentsBattersAndTopping();
+console.log("-------------------------");
 
-/* console.log("--------- EJERCICIO 4 -------");
-donutsCanBuyWithCoins(); */
+console.log("--------- EJERCICIO 4 -------");
+donutssCanBuyWithCoins();
+console.log("-------------------------");
+findTheHigherdonuts();
+console.log("-------------------------");
+findtheLowerdonuts();
+console.log("-------------------------");
+sortdonutssByPrice();
+console.log("-------------------------");
 
 console.log("-------- Ejercicio 5 ------");
-modifieFatDonuts();
+modifieFatdonutss();
 console.log("---------------------");
 modifieAmountOfCarbohydrate();
 console.log("---------------------");
@@ -49,13 +57,14 @@ addVitaminIntoAMagicFusion();
 console.log("---------------------");
 setADailyValue();
 console.log("---------------------");
-setAlergenAttributeInRelaxingAlchemyDonut();
+setAlergenAttributeInRelaxingAlchemydonuts();
+console.log("---------------------");
 
-function donutWithHigherSugar() {
-  let higherSugar = donut[0];
-  for (let i = 0; i < donut.length; i++) {
+function donutsWithHigherSugar() {
+  let higherSugar = donuts[0];
+  for (let i = 0; i < donuts.length; i++) {
     const sugar =
-      +donut[
+      +donuts[
         i
       ].nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars.split(
         "g"
@@ -66,50 +75,50 @@ function donutWithHigherSugar() {
         "g"
       )[0]
     ) {
-      higherSugar = donut[i];
+      higherSugar = donuts[i];
     }
   }
 
-  console.log(`El donut con mas azucar es ${higherSugar.name}`);
+  console.log(`El donuts con mas azucar es ${higherSugar.name}`);
 }
 
-function donutWithHigherIron() {
-  let higherIron = donut[0];
-  for (let i = 0; i < donut.length; i++) {
+function donutsWithHigherIron() {
+  let higherIron = donuts[0];
+  for (let i = 0; i < donuts.length; i++) {
     const iron =
-      +donut[i].nutrition_facts.nutrition.vitamins[3].percent.split("%")[0];
+      +donuts[i].nutrition_facts.nutrition.vitamins[3].percent.split("%")[0];
     if (
       iron >
       higherIron.nutrition_facts.nutrition.vitamins[3].percent.split("%")[0]
     ) {
-      higherIron = donut[i];
+      higherIron = donuts[i];
     }
   }
-  console.log(`El donut con mas hierro es ${higherIron.name}`);
+  console.log(`El donuts con mas hierro es ${higherIron.name}`);
 }
 
-function donutWithHigherProtein() {
-  let higherProtein = donut[0];
+function donutsWithHigherProtein() {
+  let higherProtein = donuts[0];
 
-  for (let i = 0; i < donut.length; i++) {
-    const protein = +donut[i].nutrition_facts.nutrition.protein.split("g")[0];
+  for (let i = 0; i < donuts.length; i++) {
+    const protein = +donuts[i].nutrition_facts.nutrition.protein.split("g")[0];
     if (
       protein > +higherProtein.nutrition_facts.nutrition.protein.split("g")[0]
     ) {
-      higherProtein = donut[i];
+      higherProtein = donuts[i];
     }
   }
 
-  console.log(`El donut con mas proteina es ${higherProtein.name}`);
+  console.log(`El donuts con mas proteina es ${higherProtein.name}`);
 }
 
-function donutWithLessFibre() {
-  let currentFibre = donut[0];
-  let fibreDonuts = [];
+function donutsWithLessFibre() {
+  let currentFibre = donuts[0];
+  let fibredonutss = [];
 
-  for (let i = 0; i < donut.length; i++) {
+  for (let i = 0; i < donuts.length; i++) {
     const fibre =
-      +donut[
+      +donuts[
         i
       ].nutrition_facts.nutrition.carbohydrate.carbs_detail.type.fibre.split(
         "g"
@@ -120,50 +129,51 @@ function donutWithLessFibre() {
         "g"
       )[0]
     ) {
-      currentFibre = donut[i];
-      fibreDonuts.push(donut[i]);
+      currentFibre = donuts[i];
+      fibredonutss.push(donuts[i]);
     }
   }
 
-  console.log("LOs donuts con menos fibras son: ");
-  for (let i = 0; i < fibreDonuts.length; i++) {
-    console.log(`${fibreDonuts[i].name}`);
+  console.log("Los donutss con menos fibras son: ");
+  for (let i = 0; i < fibredonutss.length; i++) {
+    console.log(`${fibredonutss[i].name}`);
   }
 }
 
-function donutWithHigherCalorie() {
-  let higherCalorie = donut[0];
+function donutsWithHigherCalorie() {
+  let higherCalorie = donuts[0];
 
-  for (let i = 0; i < donut.length; i++) {
+  for (let i = 0; i < donuts.length; i++) {
     if (
-      donut[i].nutrition_facts.nutrition.calories >
+      donuts[i].nutrition_facts.nutrition.calories >
       higherCalorie.nutrition_facts.nutrition.calories
     ) {
-      higherCalorie = donut[i];
+      higherCalorie = donuts[i];
     }
   }
 
-  console.log(`El donut con mas calorias es ${higherCalorie.name}`);
+  console.log(`El donuts con mas calorias es ${higherCalorie.name}`);
 }
 
-function listDonutsWithCalories() {
-  for (let i = 0; i < donut.length; i++) {
+function listdonutssWithCalories() {
+  for (let i = 0; i < donuts.length; i++) {
     console.log(
-      `${i + 1} . Name: ${donut[i].name}, Calories: ${
-        donut[i].nutrition_facts.nutrition.calories
+      `${i + 1} . Name: ${donuts[i].name}, Calories: ${
+        donuts[i].nutrition_facts.nutrition.calories
       }`
     );
   }
   console.log();
 }
 
-function listDonutWithCarbohydrate() {
-  for (let i = 0; i < donut.length; i++) {
+function listdonutsWithCarbohydrate() {
+  for (let i = 0; i < donuts.length; i++) {
     console.log(
-      `${i + 1}. Name: ${donut[i].name}, Carbohydrate: ${
-        donut[i].nutrition_facts.nutrition.carbohydrate.carbs_detail.type.fibre
+      `${i + 1}. Name: ${donuts[i].name}, Carbohydrate: ${
+        donuts[i].nutrition_facts.nutrition.carbohydrate.carbs_detail.type.fibre
       } de fibra y ${
-        donut[i].nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars
+        donuts[i].nutrition_facts.nutrition.carbohydrate.carbs_detail.type
+          .sugars
       } de azucar`
     );
   }
@@ -173,21 +183,23 @@ function listDonutWithCarbohydrate() {
 function averageOfCalories() {
   let sumOfCalories = 0;
 
-  for (let i = 0; i < donut.length; i++) {
-    sumOfCalories += donut[i].nutrition_facts.nutrition.calories;
+  for (let i = 0; i < donuts.length; i++) {
+    sumOfCalories += donuts[i].nutrition_facts.nutrition.calories;
   }
 
-  let averageCalories = sumOfCalories / donut.length;
+  let averageCalories = sumOfCalories / donuts.length;
 
-  console.log(`La media de las calorias de los donut es de ${averageCalories}`);
+  console.log(
+    `La media de las calorias de los donuts es de ${averageCalories}`
+  );
 }
 
 function sumOfAllSaturatedFat() {
   let totalSumOfSaturedFat = 0;
 
-  for (let i = 0; i < donut.length; i++) {
+  for (let i = 0; i < donuts.length; i++) {
     const saturedFat =
-      +donut[i].nutrition_facts.nutrition.fat.fat_type.saturated.split("g")[0];
+      +donuts[i].nutrition_facts.nutrition.fat.fat_type.saturated.split("g")[0];
 
     totalSumOfSaturedFat += saturedFat;
   }
@@ -205,8 +217,8 @@ function averagePercentOfEachVitamin() {
     iron: 0,
   };
 
-  for (let i = 0; i < donut.length; i++) {
-    const vitamins = donut[i].nutrition_facts.nutrition.vitamins;
+  for (let i = 0; i < donuts.length; i++) {
+    const vitamins = donuts[i].nutrition_facts.nutrition.vitamins;
 
     for (let j = 0; j < vitamins.length; j++) {
       if (vitamins[j].type.includes("Vitamin A")) {
@@ -225,10 +237,10 @@ function averagePercentOfEachVitamin() {
     }
   }
   let vitaminAverage = {
-    VitaminA: vitaminSum.vitaminA / donut.length,
-    VitaminC: vitaminSum.vitaminC / donut.length,
-    Calcium: vitaminSum.calcium / donut.length,
-    Iron: vitaminSum.iron / donut.length,
+    VitaminA: vitaminSum.vitaminA / donuts.length,
+    VitaminC: vitaminSum.vitaminC / donuts.length,
+    Calcium: vitaminSum.calcium / donuts.length,
+    Iron: vitaminSum.iron / donuts.length,
   };
 
   console.log(`La media de cada vitamina es de:
@@ -238,22 +250,22 @@ function averagePercentOfEachVitamin() {
     Iron: ${vitaminAverage.Iron}%`);
 }
 
-function donutListWithTheyBatter() {
+function donutsListWithTheyBatter() {
   console.log("\n----LIST OF BATTERS----");
-  for (let i = 0; i < donut.length; i++) {
-    const batter = donut[i].batters.batter;
-    console.log(`\n${i + 1}. ${donut[i].name}:`);
+  for (let i = 0; i < donuts.length; i++) {
+    const batter = donuts[i].batters.batter;
+    console.log(`\n${i + 1}. ${donuts[i].name}:`);
     for (let j = 0; j < batter.length; j++) {
       console.log(`${batter[j].type}`);
     }
   }
 }
 
-function donutListWithTheyTopping() {
+function donutsListWithTheyTopping() {
   console.log("\n----LIST OF TOPPINGS----");
-  for (let i = 0; i < donut.length; i++) {
-    const topping = donut[i].topping;
-    console.log(`\n${i + 1}. ${donut[i].name}:`);
+  for (let i = 0; i < donuts.length; i++) {
+    const topping = donuts[i].topping;
+    console.log(`\n${i + 1}. ${donuts[i].name}:`);
     for (let j = 0; j < topping.length; j++) {
       if (!topping[j].type.includes("None")) {
         console.log(`${topping[j].type}`);
@@ -262,131 +274,172 @@ function donutListWithTheyTopping() {
   }
 }
 
-function donutWithMoreVarietyBatter() {
-  let donutWithMoreBatter = donut[0].batters.batter;
-  let donutName;
+function donutsWithMoreVarietyBatter() {
+  let donutsWithMoreBatter = donuts[0].batters.batter;
+  let donutsName;
 
-  for (let i = 0; i < donut.length; i++) {
-    const batter = donut[i].batters.batter;
+  for (let i = 0; i < donuts.length; i++) {
+    const batter = donuts[i].batters.batter;
 
-    if (batter.length > donutWithMoreBatter.length) {
-      donutWithMoreBatter = batter;
-      donutName = donut[i].name;
+    if (batter.length > donutsWithMoreBatter.length) {
+      donutsWithMoreBatter = batter;
+      donutsName = donuts[i].name;
     }
   }
 
-  console.log(`\nEl donut con mas variedad de masas es de ${donutName}`);
+  console.log(`\nEl donuts con mas variedad de masas es de ${donutsName}`);
 }
 
-function donutWithMoreVarietyTopping() {
-  let donutWithMoreTopping = donut[0].topping;
-  let donutTopping = [];
+function donutsWithMoreVarietyTopping() {
+  let donutsWithMoreTopping = donuts[0].topping;
+  let donutsTopping = [];
 
-  for (let i = 1; i < donut.length; i++) {
-    const topping = donut[i].topping;
+  for (let i = 1; i < donuts.length; i++) {
+    const topping = donuts[i].topping;
 
-    if (topping.length >= donutWithMoreTopping.length) {
-      donutWithMoreTopping = topping;
-      donutTopping.push(donut[i]);
+    if (topping.length >= donutsWithMoreTopping.length) {
+      donutsWithMoreTopping = topping;
+      donutsTopping.push(donuts[i]);
     }
   }
 
-  console.log("\nLos donut con mas variedad de topping son: ");
+  console.log("\nLos donuts con mas variedad de topping son: ");
 
-  for (let i = 0; i < donutTopping.length; i++) {
-    console.log(`${donutTopping[i].name}`);
+  for (let i = 0; i < donutsTopping.length; i++) {
+    console.log(`${donutsTopping[i].name}`);
   }
 }
 
 function totalOfDifferentsBattersAndTopping() {
-  let totalBatter = 0;
-  let totalTopping = 0;
   let batterSeen = [];
   let toppingSeen = [];
 
-  for (let i = 0; i < donut.length; i++) {
-    const batter = donut[i].batters.batter;
-    const topping = donut[i].topping;
+  for (let i = 0; i < donuts.length; i++) {
+    const batter = donuts[i].batters.batter;
+    const topping = donuts[i].topping;
 
     for (let j = 0; j < batter.length; j++) {
       if (!batterSeen.includes(batter[j].id)) {
         batterSeen.push(batter[j].id);
-        totalBatter++;
       }
     }
 
     for (let k = 0; k < topping.length; k++) {
       if (!toppingSeen.includes(topping[k].id)) {
         toppingSeen.push(topping[k].id);
-        totalTopping++;
       }
     }
   }
 
   console.log(
-    `El total de masas diferentes que existen en toda la posada es de ${totalBatter}`
+    `El total de masas diferentes que existen en toda la posada es de ${batterSeen.length}`
   );
   console.log(
-    `El total de masas diferentes que existen en toda la posada es de ${
-      totalTopping - 1
+    `El total de toppings diferentes que existen en toda la posada es de ${
+      toppingSeen.length - 1
     }`
   );
 }
 
-//4.- Nuestro grupo sólo dispone de 4 monedas de plata.
+function donutssCanBuyWithCoins() {
+  let silverCoins = 4;
+  let donutsPerType = [];
 
-//Mostrar cuántos donuts de cada tipo podemos comprar y las monedas sobrantes. (+ 50 exp)
+  for (let i = 0; i < donuts.length; i++) {
+    let quantity = Math.floor(silverCoins / donuts[i].ppu);
+    let leftoverCoins = (silverCoins - quantity * donuts[i].ppu).toFixed(2);
+    donutsPerType.push(
+      `${donuts[i].name}, cantidad: ${quantity}, monedas restantes: ${leftoverCoins}`
+    );
+  }
 
-//Encontrar el donut más caro que aún podamos comprar con 4 monedas de plata (+ 50 exp)
+  for (let i = 0; i < donutsPerType.length; i++) {
+    console.log(donutsPerType[i]);
+  }
+}
 
-//Encontrar el donut más barato de la posada (+ 50 exp)
+function findTheHigherdonuts() {
+  let higherCoin = donuts[0];
+  for (let i = 0; i < donuts.length; i++) {
+    if (donuts[i].ppu > higherCoin.ppu) {
+      higherCoin = donuts[i];
+    }
+  }
 
-//Ordenar los donuts por precio de menor a mayor (+ 50 exp)
+  console.log(
+    `El donuts mas caro es ${higherCoin.name} y cuesta ${higherCoin.ppu}`
+  );
+}
 
-//Calcular cuántos donuts distintos podríamos comprar con 4 monedas en total (mezclando tipos) (+ 50 exp)
+function findtheLowerdonuts() {
+  let lowerdonuts = donuts[0];
+  for (let i = 0; i < donuts.length; i++) {
+    if (donuts[i].ppu < lowerdonuts.ppu) {
+      lowerdonuts = donuts[i];
+    }
+  }
 
-function modifieFatDonuts() {
-  for (let i = 0; i < donut.length; i++) {
+  console.log(
+    `El donuts mas barato es ${lowerdonuts.name} y cuesta ${lowerdonuts.ppu}`
+  );
+}
+
+function sortdonutssByPrice() {
+  for (let i = 0; i < donuts.length - 1; i++) {
+    for (let j = i + 1; j < donuts.length; j++) {
+      if (donuts[i].ppu > donuts[j].ppu) {
+        [donuts[i], donuts[j]] = [donuts[j], donuts[i]];
+      }
+    }
+  }
+
+  for (let i = 0; i < donuts.length; i++) {
+    console.log(`${donuts[i].name}, price: ${donuts[i].ppu}`);
+  }
+}
+
+function modifieFatdonutss() {
+  for (let i = 0; i < donuts.length; i++) {
     const cholesterol =
-      +donut[i].nutrition_facts.nutrition.cholesterol.amount.split("mg")[0];
+      +donuts[i].nutrition_facts.nutrition.cholesterol.amount.split("mg")[0];
     if (cholesterol > 12) {
-      donut[i].nutrition_facts.nutrition.fat.fat_type.trans = "3,2gr";
+      donuts[i].nutrition_facts.nutrition.fat.fat_type.trans = "3,2gr";
       console.log(
-        `${donut[i].name} ${donut[i].nutrition_facts.nutrition.fat.fat_type.trans}`
+        `${donuts[i].name} ${donuts[i].nutrition_facts.nutrition.fat.fat_type.trans}`
       );
     }
   }
 }
 
 function modifieAmountOfCarbohydrate() {
-  for (let i = 0; i < donut.length; i++) {
+  for (let i = 0; i < donuts.length; i++) {
     const sugar =
-      +donut[
+      +donuts[
         i
       ].nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars.split(
         "g"
       )[0];
 
     if (sugar > 50) {
-      donut[i].nutrition_facts.nutrition.carbohydrate.carbs_detail.amount =
+      donuts[i].nutrition_facts.nutrition.carbohydrate.carbs_detail.amount =
         "42gr";
       console.log(
-        `${donut[i].name} ${donut[i].nutrition_facts.nutrition.carbohydrate.carbs_detail.amount}`
+        `${donuts[i].name} ${donuts[i].nutrition_facts.nutrition.carbohydrate.carbs_detail.amount}`
       );
     }
   }
 }
 
 function addVitaminIntoAMagicFusion() {
-  for (let i = 0; i < donut.length; i++) {
-    const vitamins = donut[i].nutrition_facts.nutrition.vitamins;
-    if (donut[i].name === "Magic Fusion") {
+  for (let i = 0; i < donuts.length; i++) {
+    const vitamins = donuts[i].nutrition_facts.nutrition.vitamins;
+    if (donuts[i].name === "Magic Fusion") {
       vitamins.push({
         type: "Nitacina",
         percent: "0%",
       });
 
-      console.log(`Las vitaminas de ${donut[i].name} son: `);
+      console.log(`Las vitaminas de ${donuts[i].name} son: `);
       for (let j = 0; j < vitamins.length; j++) {
         console.log(`${vitamins[j].type} ${vitamins[j].percent}`);
       }
@@ -395,20 +448,20 @@ function addVitaminIntoAMagicFusion() {
 }
 
 function setADailyValue() {
-  for (let i = 0; i < donut.length; i++) {
-    donut[i].nutrition_facts.nutrition.carbohydrate.daily_value = "53%";
+  for (let i = 0; i < donuts.length; i++) {
+    donuts[i].nutrition_facts.nutrition.carbohydrate.daily_value = "53%";
     console.log(
-      `${donut[i].name} tiene un valor diario de ${donut[i].nutrition_facts.nutrition.carbohydrate.daily_value}`
+      `${donuts[i].name} tiene un valor diario de ${donuts[i].nutrition_facts.nutrition.carbohydrate.daily_value}`
     );
   }
 }
 
-function setAlergenAttributeInRelaxingAlchemyDonut() {
-  for (let i = 0; i < donut.length; i++) {
-    if (donut[i].name === "Relaxing Alchemy") {
+function setAlergenAttributeInRelaxingAlchemydonuts() {
+  for (let i = 0; i < donuts.length; i++) {
+    if (donuts[i].name === "Relaxing Alchemy") {
       const alergen = { type: "Gluten free" };
-      donut[i] = { ...donut[i], alergen };
-      console.log(`${donut[i].name} alergen is ${donut[i].alergen.type}`);
+      donuts[i] = { ...donuts[i], alergen };
+      console.log(`${donuts[i].name} alergen is ${donuts[i].alergen.type}`);
     }
   }
 }
