@@ -4,17 +4,27 @@ const donut = data.items.item;
 
 console.log("--------- EJERCICIO 1 -------");
 donutWithHigherSugar();
+console.log("-------------------------");
 donutWithHigherIron();
+console.log("-------------------------");
 donutWithHigherProtein();
+console.log("-------------------------");
 donutWithLessFibre();
+console.log("-------------------------");
 donutWithHigherCalorie();
+console.log("-------------------------");
 
 console.log("--------- EJERCICIO 2 -------");
 listDonutsWithCalories();
+console.log("-------------------------");
 listDonutWithCarbohydrate();
+console.log("-------------------------");
 averageOfCalories();
+console.log("-------------------------");
 sumOfAllSaturatedFat();
+console.log("-------------------------");
 averagePercentOfEachVitamin();
+console.log("-------------------------");
 
 console.log("--------- EJERCICIO 3 -------");
 donutListWithTheyBatter();
@@ -29,6 +39,17 @@ totalOfDifferentsBattersAndTopping();
 
 /* console.log("--------- EJERCICIO 4 -------");
 donutsCanBuyWithCoins(); */
+
+console.log("-------- Ejercicio 5 ------");
+modifieFatDonuts();
+console.log("---------------------");
+modifieAmountOfCarbohydrate();
+console.log("---------------------");
+addVitaminIntoAMagicFusion();
+console.log("---------------------");
+setADailyValue();
+console.log("---------------------");
+setAlergenAttributeInRelaxingAlchemyDonut();
 
 function donutWithHigherSugar() {
   let higherSugar = donut[0];
@@ -312,17 +333,6 @@ function totalOfDifferentsBattersAndTopping() {
   );
 }
 
-/* function donutsCanBuyWithCoins() {
-  let silverCoins = 4;
-  let donutPerType = [];
-  let donutToBuy = [];
-
-  for (let i = 0; i < donut.length; i++) {
-      let quantity = Math.floor(silverCoins / donut[i].ppu);
-      let leftoverCoins;
-  }
-} */
-
 //4.- Nuestro grupo sólo dispone de 4 monedas de plata.
 
 //Mostrar cuántos donuts de cada tipo podemos comprar y las monedas sobrantes. (+ 50 exp)
@@ -335,14 +345,70 @@ function totalOfDifferentsBattersAndTopping() {
 
 //Calcular cuántos donuts distintos podríamos comprar con 4 monedas en total (mezclando tipos) (+ 50 exp)
 
-//5.- Para nuestro horror y preocupación hemos detectado grandes errores sintácticos en el conjuro original, es momento de poner nuestros conocimientos arcanos al servicio de toda la posada.
+function modifieFatDonuts() {
+  for (let i = 0; i < donut.length; i++) {
+    const cholesterol =
+      +donut[i].nutrition_facts.nutrition.cholesterol.amount.split("mg")[0];
+    if (cholesterol > 12) {
+      donut[i].nutrition_facts.nutrition.fat.fat_type.trans = "3,2gr";
+      console.log(
+        `${donut[i].name} ${donut[i].nutrition_facts.nutrition.fat.fat_type.trans}`
+      );
+    }
+  }
+}
 
-//Los donuts con el colesterol > 12 modificar las grasas trans a 3,2 gr (+ 50 exp)
+function modifieAmountOfCarbohydrate() {
+  for (let i = 0; i < donut.length; i++) {
+    const sugar =
+      +donut[
+        i
+      ].nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars.split(
+        "g"
+      )[0];
 
-//Donuts con azúcar > 50  modificar el amount de los detalles de carbohidratos a 42gr (+ 50 exp)
+    if (sugar > 50) {
+      donut[i].nutrition_facts.nutrition.carbohydrate.carbs_detail.amount =
+        "42gr";
+      console.log(
+        `${donut[i].name} ${donut[i].nutrition_facts.nutrition.carbohydrate.carbs_detail.amount}`
+      );
+    }
+  }
+}
 
-//Añadir una vitamina llamada "Nitacina" al donut con el nombre "Magic Fusion" (+ 50 exp)
+function addVitaminIntoAMagicFusion() {
+  for (let i = 0; i < donut.length; i++) {
+    const vitamins = donut[i].nutrition_facts.nutrition.vitamins;
+    if (donut[i].name === "Magic Fusion") {
+      vitamins.push({
+        type: "Nitacina",
+        percent: "0%",
+      });
 
-//El daily value de los carbohidratos de todos los donuts va a ser de 53% (+ 50 exp)
+      console.log(`Las vitaminas de ${donut[i].name} son: `);
+      for (let j = 0; j < vitamins.length; j++) {
+        console.log(`${vitamins[j].type} ${vitamins[j].percent}`);
+      }
+    }
+  }
+}
 
-//Crearle un nuevo atributo "Alergen" al donut llamado "Relaxing Alchemy" y que dentro de el ponga "Gluten Free" (+ 50 exp)
+function setADailyValue() {
+  for (let i = 0; i < donut.length; i++) {
+    donut[i].nutrition_facts.nutrition.carbohydrate.daily_value = "53%";
+    console.log(
+      `${donut[i].name} tiene un valor diario de ${donut[i].nutrition_facts.nutrition.carbohydrate.daily_value}`
+    );
+  }
+}
+
+function setAlergenAttributeInRelaxingAlchemyDonut() {
+  for (let i = 0; i < donut.length; i++) {
+    if (donut[i].name === "Relaxing Alchemy") {
+      const alergen = { type: "Gluten free" };
+      donut[i] = { ...donut[i], alergen };
+      console.log(`${donut[i].name} alergen is ${donut[i].alergen.type}`);
+    }
+  }
+}
