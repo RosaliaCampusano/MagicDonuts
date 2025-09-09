@@ -2,7 +2,7 @@ import { data } from "./donut.js";
 
 const donut = data.items.item;
 
-/* console.log("--------- EJERCICIO 1 -------");
+console.log("--------- EJERCICIO 1 -------");
 donutWithHigherSugar();
 donutWithHigherIron();
 donutWithHigherProtein();
@@ -14,7 +14,7 @@ listDonutsWithCalories();
 listDonutWithCarbohydrate();
 averageOfCalories();
 sumOfAllSaturatedFat();
-averagePercentOfEachVitamin(); */
+averagePercentOfEachVitamin();
 
 console.log("--------- EJERCICIO 3 -------");
 donutListWithTheyBatter();
@@ -27,18 +27,23 @@ donutWithMoreVarietyTopping();
 console.log("-------------------------");
 totalOfDifferentsBattersAndTopping();
 
+/* console.log("--------- EJERCICIO 4 -------");
+donutsCanBuyWithCoins(); */
+
 function donutWithHigherSugar() {
   let higherSugar = donut[0];
   for (let i = 0; i < donut.length; i++) {
-    if (
-      donut[
+    const sugar =
+      +donut[
         i
       ].nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars.split(
         "g"
-      ) >
-      higherSugar.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars.split(
+      )[0];
+    if (
+      sugar >
+      +higherSugar.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars.split(
         "g"
-      )
+      )[0]
     ) {
       higherSugar = donut[i];
     }
@@ -50,9 +55,11 @@ function donutWithHigherSugar() {
 function donutWithHigherIron() {
   let higherIron = donut[0];
   for (let i = 0; i < donut.length; i++) {
+    const iron =
+      +donut[i].nutrition_facts.nutrition.vitamins[3].percent.split("%")[0];
     if (
-      donut[i].nutrition_facts.nutrition.vitamins[3].percent.split("%") >
-      higherIron.nutrition_facts.nutrition.vitamins[3].percent.split("%")[1]
+      iron >
+      higherIron.nutrition_facts.nutrition.vitamins[3].percent.split("%")[0]
     ) {
       higherIron = donut[i];
     }
@@ -64,9 +71,9 @@ function donutWithHigherProtein() {
   let higherProtein = donut[0];
 
   for (let i = 0; i < donut.length; i++) {
+    const protein = +donut[i].nutrition_facts.nutrition.protein.split("g")[0];
     if (
-      donut[i].nutrition_facts.nutrition.protein.split("g") >
-      higherProtein.nutrition_facts.nutrition.protein.split("g")
+      protein > +higherProtein.nutrition_facts.nutrition.protein.split("g")[0]
     ) {
       higherProtein = donut[i];
     }
@@ -77,21 +84,29 @@ function donutWithHigherProtein() {
 
 function donutWithLessFibre() {
   let currentFibre = donut[0];
+  let fibreDonuts = [];
 
   for (let i = 0; i < donut.length; i++) {
-    if (
-      donut[
+    const fibre =
+      +donut[
         i
       ].nutrition_facts.nutrition.carbohydrate.carbs_detail.type.fibre.split(
         "g"
-      ) <=
-      currentFibre.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.fibre.split(
+      )[0];
+    if (
+      fibre <=
+      +currentFibre.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.fibre.split(
         "g"
-      )
+      )[0]
     ) {
       currentFibre = donut[i];
-      console.log(`El donut con menos fibra es ${currentFibre.name}`);
+      fibreDonuts.push(donut[i]);
     }
+  }
+
+  console.log("LOs donuts con menos fibras son: ");
+  for (let i = 0; i < fibreDonuts.length; i++) {
+    console.log(`${fibreDonuts[i].name}`);
   }
 }
 
@@ -296,6 +311,17 @@ function totalOfDifferentsBattersAndTopping() {
     }`
   );
 }
+
+/* function donutsCanBuyWithCoins() {
+  let silverCoins = 4;
+  let donutPerType = [];
+  let donutToBuy = [];
+
+  for (let i = 0; i < donut.length; i++) {
+      let quantity = Math.floor(silverCoins / donut[i].ppu);
+      let leftoverCoins;
+  }
+} */
 
 //4.- Nuestro grupo sólo dispone de 4 monedas de plata.
 
