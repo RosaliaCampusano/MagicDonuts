@@ -79,7 +79,7 @@ function donutsWithHigherSugar() {
     }
   }
 
-  console.log(`El donuts con mas azucar es ${higherSugar.name}`);
+  console.log(`El donut con mas azucar es ${higherSugar.name}`);
 }
 
 function donutsWithHigherIron() {
@@ -94,7 +94,7 @@ function donutsWithHigherIron() {
       higherIron = donuts[i];
     }
   }
-  console.log(`El donuts con mas hierro es ${higherIron.name}`);
+  console.log(`El donut con mas hierro es ${higherIron.name}`);
 }
 
 function donutsWithHigherProtein() {
@@ -109,7 +109,7 @@ function donutsWithHigherProtein() {
     }
   }
 
-  console.log(`El donuts con mas proteina es ${higherProtein.name}`);
+  console.log(`El donut con mas proteina es ${higherProtein.name}`);
 }
 
 function donutsWithLessFibre() {
@@ -134,7 +134,7 @@ function donutsWithLessFibre() {
     }
   }
 
-  console.log("Los donutss con menos fibras son: ");
+  console.log("Los donuts con menos fibras son: ");
   for (let i = 0; i < fibredonutss.length; i++) {
     console.log(`${fibredonutss[i].name}`);
   }
@@ -152,7 +152,7 @@ function donutsWithHigherCalorie() {
     }
   }
 
-  console.log(`El donuts con mas calorias es ${higherCalorie.name}`);
+  console.log(`El donut con mas calorias es ${higherCalorie.name}`);
 }
 
 function listdonutssWithCalories() {
@@ -287,7 +287,7 @@ function donutsWithMoreVarietyBatter() {
     }
   }
 
-  console.log(`\nEl donuts con mas variedad de masas es de ${donutsName}`);
+  console.log(`El donut con mas variedad de masas es de ${donutsName}`);
 }
 
 function donutsWithMoreVarietyTopping() {
@@ -303,7 +303,7 @@ function donutsWithMoreVarietyTopping() {
     }
   }
 
-  console.log("\nLos donuts con mas variedad de topping son: ");
+  console.log("Los donuts con mas variedad de topping son: ");
 
   for (let i = 0; i < donutsTopping.length; i++) {
     console.log(`${donutsTopping[i].name}`);
@@ -367,7 +367,7 @@ function findTheHigherdonuts() {
   }
 
   console.log(
-    `El donuts mas caro es ${higherCoin.name} y cuesta ${higherCoin.ppu}`
+    `El donut mas caro es ${higherCoin.name} y cuesta ${higherCoin.ppu}`
   );
 }
 
@@ -380,7 +380,7 @@ function findtheLowerdonuts() {
   }
 
   console.log(
-    `El donuts mas barato es ${lowerdonuts.name} y cuesta ${lowerdonuts.ppu}`
+    `El donut mas barato es ${lowerdonuts.name} y cuesta ${lowerdonuts.ppu}`
   );
 }
 
@@ -461,7 +461,9 @@ function setAlergenAttributeInRelaxingAlchemydonuts() {
     if (donuts[i].name === "Relaxing Alchemy") {
       const alergen = { type: "Gluten free" };
       donuts[i] = { ...donuts[i], alergen };
-      console.log(`${donuts[i].name} alergen is ${donuts[i].alergen.type}`);
+      console.log(
+        `El alergeno de ${donuts[i].name} es ${donuts[i].alergen.type}`
+      );
     }
   }
 }
